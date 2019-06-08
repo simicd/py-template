@@ -1,3 +1,4 @@
 import pytemplate
 
-pytemplate.template_function("World")
+result = pytemplate.template_function("World")
+print(result)
