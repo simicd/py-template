@@ -1,3 +1,7 @@
+"""Template
+===============
+This is the template module description
+"""
 
 def template_function(name: str) -> str:
     """This is a simple template function

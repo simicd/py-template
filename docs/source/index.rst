@@ -7,9 +7,10 @@ Welcome to py-template's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 2
+   :titlesonly:
    :caption: Contents:
 
+   pytemplate
 
 
 Indices and tables
