@@ -12,3 +12,10 @@ This repo stores a template for Python packages and includes
     - `--separate` create a file for each module
     - `--no-headings` use module-level docstrings instead of default titles (module name)
 - Create website based on .rst files in source folder: `sphinx-build -b html docs/source docs/build`
+
+Requires: `sphinx_rtd_theme`, `sphinx_autodoc_typehints`
+
+## Running unit tests and code coverage
+`pytest --doctest-modules --junitxml=junit/test-results.xml --cov=pytemplate --cov-report=xml --cov-branch --ignore main.py`
+
+Requires: `pytest`, `pytest-cov`
