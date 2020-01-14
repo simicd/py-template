@@ -5,18 +5,24 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python (External): Start main.py",
+            "name": "Python: main.py",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/main.py",
-            "console": "externalTerminal"
+            "program": "${workspaceFolder}/main.py",
+            "console": "integratedTerminal",
+            // The following fixes the missing print of dataframes & series - to be removed once issue resolved
+            // See also: https://github.com/microsoft/vscode-python/issues/9540
+            "redirectOutput": true
         },
         {
-            "name": "Python (Integrated): Start main.py",
+            "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceRoot}/main.py",
-            "console": "integratedTerminal"
+            "program": "${file}",
+            "console": "integratedTerminal",
+            // The following fixes the missing print of dataframes & series - to be removed once issue resolved
+            // See also: https://github.com/microsoft/vscode-python/issues/9540
+            "redirectOutput": true
         }
     ]
 }
