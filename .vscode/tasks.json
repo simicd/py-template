@@ -1,0 +1,30 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Sphinx: Generate source files",
+            "detail": "Create module structure as .rst file (required when there are new .py modules).",
+            "type": "shell",
+            "command": "sphinx-apidoc -o docs/source/ pytemplate pytemplate/tests/* --force --separate --no-headings"
+        },
+        {
+            "label": "Sphinx: Generate documentation",
+            "detail": "Create website with documentation.",
+            "type": "shell",
+            "command": "sphinx-build -b html docs/source docs/build"
+        },
+        {
+            "label": "Test: Run unit tests and code coverage",
+            "detail": "Execute all tests and produce the code coverage file.",
+            "type": "shell",
+            "command": "pytest --doctest-modules --junitxml=junit/test-results.xml --cov=pytemplate --cov-report=xml --cov-branch --ignore main.py",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}
