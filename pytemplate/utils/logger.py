@@ -2,10 +2,9 @@
 import logging
 from typing import List, Dict
 
-# Initialize logger
-logger = logging.getLogger(__name__)
-# Set default level above which info will be captured
-logger.setLevel(logging.DEBUG)
+# # Initialize logger - get package root name (e.g. __name__ = mypackage.utils -> mypackage)
+logger = logging.getLogger(__name__.split(".")[0])
+
 
 class JsonFormatter(logging.Formatter):
     def __init__(self, attributes: List[str], time_format: str="%Y-%m-%dT%H:%M:%S", msec_format: str='%s.%03dZ', rename: Dict[str, str]=None):
@@ -49,7 +48,7 @@ class JsonFormatter(logging.Formatter):
         return self.dumps(attr_dict)
 
 
-# Print log in JSON format
+# # Print log in JSON format
 json_log_formatter = JsonFormatter(['asctime', 'module', 'levelname', 'message', 'params'], rename={'asctime': 'time', 'levelname': 'level'})
 
 # Log outputs in console
@@ -60,5 +59,4 @@ logger.addHandler(stream_handler)                 # Activate log handler
 # Log outputs as file
 file_handler = logging.FileHandler('package.log')
 file_handler.setFormatter(json_log_formatter)
-file_handler.setLevel(logging.INFO)               # Override logging level for files
 logger.addHandler(file_handler)
