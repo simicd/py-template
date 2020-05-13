@@ -3,6 +3,9 @@
 This is the template module description
 """
 
+import logging
+logger = logging.getLogger(__name__)
+
 def template_function(name: str) -> str:
     """This is a simple template function
 
@@ -15,5 +18,8 @@ def template_function(name: str) -> str:
     Returns:
         string
     """
+
+    logger.info("Running function...")
+    print(__name__)
 
     return f"Hello {name}"
