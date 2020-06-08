@@ -25,6 +25,17 @@
                 "kind": "test",
                 "isDefault": true
             }
+        },
+        {
+            "label": "Build: Create Python package",
+            "detail": "Create a Python distribution package.",
+            "type": "shell",
+            "command": "python setup.py bdist_wheel --universal",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
         }
     ]
 }
